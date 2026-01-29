@@ -515,28 +515,49 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 12. ### What is a data binding?
-    Data binding is a core concept in Angular and allows to define communication between a component and the DOM, making it very easy to define interactive applications without worrying about pushing and pulling data. There are four forms of data binding(divided as 3 categories) which differ in the way the data is flowing.
-    1. **From the Component to the DOM:**
+    Best way to start your answer:
 
-        **Interpolation:** {{ value }}: Adds the value of a property from the component
-        ```html
-        <li>Name: {{ user.name }}</li>
-        <li>Address: {{ user.address }}</li>
-        ```
-        **Property binding:** [property]=”value”: The value is passed from the component to the specified property or simple HTML attribute
-        ```html
-        <input type="email" [value]="user.email">
-        ```
-    2. **From the DOM to the Component:**
-        **Event binding: (event)=”function”:** When a specific DOM event happens (eg.: click, change, keyup), call the specified method in the component
-        ```html
-        <button (click)="logout()"></button>
-        ```
-    3. **Two-way binding:**
-        **Two-way data binding:** [(ngModel)]=”value”: Two-way data binding allows to have the data flow both ways. For example, in the below code snippet, both the email DOM input and component email property are in sync
-        ```html
-        <input type="email" [(ngModel)]="user.email">
-        ```
+	“Data binding is a mechanism that connects the component (TypeScript logic) with the template (HTML view). It keeps the UI and data in sync.”
+	
+	🔄 Types of Data Binding (4 types)
+	Type	Direction	Syntax	Use Case
+	1️⃣ Interpolation	Component → View	{{ data }}	Show data in HTML
+	2️⃣ Property Binding	Component → View	[property]="value"	Set element properties (src, disabled)
+	3️⃣ Event Binding	View → Component	(event)="method()"	Handle user actions
+	4️⃣ Two-way Binding	Both ways	[(ngModel)]="value"	Form inputs
+	🧠 How to explain each quickly
+	1️⃣ Interpolation
+	
+	Displays data from component in template.
+	
+	<h1>{{ username }}</h1>
+	
+	2️⃣ Property Binding
+	
+	Binds value to DOM property.
+	
+	<img [src]="imageUrl">
+	<button [disabled]="isDisabled">Click</button>
+	
+	3️⃣ Event Binding
+	
+	Calls function when event happens.
+	
+	<button (click)="submitForm()">Submit</button>
+	
+	4️⃣ Two-Way Binding ⭐ (important)
+	<input [(ngModel)]="username">
+	
+	
+	“It combines property binding and event binding, so changes in UI update the component and vice versa.”
+	
+	🧩 Best Interview Summary Line
+	
+	“Angular supports one-way data binding from component to view (interpolation & property binding), one-way from view to component (event binding), and two-way data binding using ngModel.”
+	
+	⚠️ Bonus (impress interviewer)
+	
+	“Two-way binding requires importing FormsModule.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
