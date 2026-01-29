@@ -776,28 +776,61 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 16. ### What is a service?
-    A service is used when a common functionality needs to be provided to various modules. Services allow for greater separation of concerns for your application and better modularity by allowing you to extract common functionality out of components.
+    Best interview definition:
 
-    Let's create a repoService which can be used across components,
-
-    ```typescript
-    import { Injectable } from '@angular/core';
-    import { Http } from '@angular/http';
-
-    @Injectable({ // The Injectable decorator is required for dependency injection to work
-      // providedIn option registers the service with a specific NgModule
-      providedIn: 'root',  // This declares the service with the root app (AppModule)
-    })
-    export class RepoService{
-      constructor(private http: Http){
-      }
-
-      fetchAll(){
-        return this.http.get('https://api.github.com/repositories');
-      }
-    }
-    ```
-    The above service uses Http service as a dependency.
+	“A service in Angular is a class used to share business logic, data, or functionality across multiple components using dependency injection.”
+	
+	🧠 Simple Meaning
+	
+	👉 Component = UI
+	👉 Service = Logic + Data handling
+	
+	We use services to keep components clean.
+	
+	🧩 What services are used for
+	
+	API calls (HTTP requests)
+	
+	Sharing data between components
+	
+	Business logic
+	
+	Utility functions
+	
+	Authentication handling
+	
+	🧱 Example
+	@Injectable({
+	  providedIn: 'root'
+	})
+	export class UserService {
+	  constructor(private http: HttpClient) {}
+	
+	  getUsers() {
+	    return this.http.get('/api/users');
+	  }
+	}
+	
+	
+	Use in component:
+	
+	constructor(private userService: UserService) {}
+	
+	ngOnInit() {
+	  this.userService.getUsers().subscribe();
+	}
+	
+	🎯 Important Interview Points
+	
+	Services are singleton by default (providedIn: 'root')
+	
+	They are injected using Dependency Injection
+	
+	Help in separation of concerns
+	
+	🧠 Strong One-Line Summary
+	
+	“Services in Angular are reusable classes that handle data and logic and can be injected into components to promote code reusability and maintainability.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
