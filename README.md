@@ -479,20 +479,38 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 11. ### What are lifecycle hooks available?
-    Angular application goes through an entire set of processes or has a lifecycle right from its initiation to the end of the application.
-    The representation of lifecycle in pictorial representation as follows,
 
-    ![ScreenShot](images/lifecycle.png)
-
-    The description of each lifecycle method is as below,
-    1. **ngOnChanges:** When the value of a data bound property changes, then this method is called.
-    2. **ngOnInit:** This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
-    3. **ngDoCheck:** This is for the detection and to act on changes that Angular can't or won't detect on its own.
-    4. **ngAfterContentInit:** This is called in response after Angular projects external content into the component's view.
-    5. **ngAfterContentChecked:** This is called in response after Angular checks the content projected into the component.
-    6. **ngAfterViewInit:** This is called in response after Angular initializes the component's views and child views.
-    7. **ngAfterViewChecked:** This is called in response after Angular checks the component's views and child views.
-    8. **ngOnDestroy:** This is the cleanup phase just before Angular destroys the directive/component.
+	“Angular lifecycle hooks are special methods that Angular calls at different stages of a component’s life — from creation to destruction. They let us run custom logic like API calls, DOM updates, or cleanup at the right time.”
+	
+	🔁 All Angular Lifecycle Hooks (in order)
+	Hook	When it runs	How to explain in interview
+	ngOnChanges()	When an @Input() value changes	Used to react to input changes from parent component
+	ngOnInit()	Once, after first ngOnChanges	Best place for API calls, initial setup
+	ngDoCheck()	During every change detection cycle	For custom change detection (rare use, performance heavy)
+	ngAfterContentInit()	After projected content (ng-content) loads	When working with content projection
+	ngAfterContentChecked()	After every check of projected content	Runs frequently, avoid heavy logic
+	ngAfterViewInit()	After component’s view & child views load	Access ViewChild, DOM elements
+	ngAfterViewChecked()	After every view check	Runs often, avoid logic here
+	ngOnDestroy()	Just before component is removed	Cleanup: unsubscribe, clear timers
+	🧠 Best Interview Line (important)
+	
+	“The most commonly used hooks in real projects are ngOnInit, ngOnChanges, ngAfterViewInit, and ngOnDestroy.”
+	
+	💡 When they ask “Where do you make API calls?”
+	
+	👉 Say:
+	
+	“Inside ngOnInit() because the component is initialized and inputs are ready.”
+	
+	💡 When they ask “Why ngOnDestroy is important?”
+	
+	👉 Say:
+	
+	“To prevent memory leaks by unsubscribing Observables, removing event listeners, and clearing intervals/timeouts.”
+	
+	🧩 Short Version (if interviewer wants quick answer)
+	
+	“Angular has 8 lifecycle hooks that run during component creation, change detection, view/content initialization, and destruction. The key ones are ngOnInit for initialization, ngOnChanges for input updates, ngAfterViewInit for DOM access, and ngOnDestroy for cleanup.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
