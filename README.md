@@ -835,7 +835,59 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 17. ### What is dependency injection in Angular?
-    Dependency injection (DI), is an important application design pattern in which a class asks for dependencies from external sources rather than creating them itself. Angular comes with its own dependency injection framework for resolving dependencies( services or objects that a class needs to perform its function).So you can have your services depend on other services throughout your application.
+    Best interview definition:
+
+	“Dependency Injection is a design pattern where a class receives its dependencies from an external source rather than creating them itself. Angular has a built-in DI system to provide services to components.”
+	
+	🧠 Simple Meaning
+	
+	Instead of this ❌
+	
+	const service = new UserService();
+	
+	
+	Angular does this ✅
+	
+	constructor(private userService: UserService) {}
+	
+	
+	Angular automatically creates and provides the service.
+	
+	🧩 Why we use DI
+	
+	Loose coupling
+	
+	Code reusability
+	
+	Easy testing
+	
+	Better maintainability
+	
+	⚙️ How DI works in Angular
+	
+	Service is registered (providedIn: 'root' or in module)
+	
+	Angular injector creates instance
+	
+	Injected through constructor
+	
+	🧱 Example
+	@Injectable({ providedIn: 'root' })
+	export class AuthService {}
+	
+	constructor(private authService: AuthService) {}
+	
+	🎯 Key Interview Line
+	
+	“Angular’s injector is responsible for creating and managing service instances and providing them wherever needed.”
+	
+	🧠 Bonus (impress interviewer)
+	
+	“Services provided in root are singletons across the app.”
+	
+	🧩 Short Summary Answer
+	
+	“Dependency Injection in Angular is a mechanism where services are provided to components by Angular’s injector, promoting loose coupling and reusability.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
