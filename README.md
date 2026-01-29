@@ -562,6 +562,51 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 13. ### What is metadata?
+	Best interview answer:
+	
+	“Metadata in Angular is information we provide to a class using decorators. It tells Angular how the class should be processed, like whether it is a component, directive, service, or module.”
+	
+	🧠 Simple Meaning
+	
+	👉 Metadata = Data about data
+	In Angular, it describes how Angular should use a class.
+	
+	🧩 Example (Component)
+	@Component({
+	  selector: 'app-user',
+	  templateUrl: './user.component.html',
+	  styleUrls: ['./user.component.css']
+	})
+	export class UserComponent {}
+	
+	
+	Here:
+	
+	@Component → decorator
+	
+	The object inside {} → metadata
+	
+	It tells Angular:
+	
+	Metadata Property	Purpose
+	selector	HTML tag name
+	templateUrl	View file
+	styleUrls	CSS files
+	🏗 Other Decorators that use Metadata
+	Decorator	Used For
+	@Component	UI component
+	@Directive	Custom behavior
+	@Pipe	Data transformation
+	@Injectable	Services
+	@NgModule	Module configuration
+	🎯 Best One-Line Summary
+	
+	“Metadata is defined using decorators and tells Angular how to create and use a class.”
+	
+	💡 Bonus (to impress)
+	
+	“Without metadata, Angular wouldn’t know how to process a class — it would just be a normal TypeScript class.”
+    ------------------------------------------------- OR ---------------------------------------------------------
     Metadata is used to decorate a class so that it can configure the expected behavior of the class. The metadata is represented by decorators
     1. **Class decorators**, e.g. @Component and @NgModule
         ```typescript
