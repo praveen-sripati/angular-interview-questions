@@ -733,23 +733,45 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 15. ### What is the difference between constructor and ngOnInit?
-    The **Constructor** is a default method of the class that is executed when the class is instantiated and ensures proper initialisation of fields in the class and its subclasses. Angular, or better Dependency Injector (DI), analyses the constructor parameters and when it creates a new instance by calling new MyClass() it tries to find providers that match the types of the constructor parameters, resolves them and passes them to the constructor.  
-    **ngOnInit** is a life cycle hook called by Angular to indicate that Angular is done creating the component.  
-    Mostly we use ngOnInit for all the initialization/declaration and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
-    So you should use constructor() to setup Dependency Injection and not much else. ngOnInit() is better place to "start" - it's where/when components' bindings are resolved.
+    Start like this:
 
-    ```typescript
-    export class App implements OnInit{
-      constructor(private myService: MyService){
-         //called first time before the ngOnInit()
-      }
-
-      ngOnInit(){
-         //called after the constructor and called  after the first ngOnChanges()
-         //e.g. http call...
-      }
-    }
-    ```
+	“Constructor is a TypeScript feature used for class initialization and dependency injection, while ngOnInit is an Angular lifecycle hook used for component initialization after Angular sets input properties.”
+	
+	🔍 Detailed Difference
+	Constructor	ngOnInit
+	Part of TypeScript / JavaScript class	Part of Angular lifecycle
+	Runs when class is instantiated	Runs after Angular initializes component
+	Used for Dependency Injection	Used for component logic & setup
+	Should NOT contain heavy logic	Best place for API calls
+	Runs before @Input() values are set	Runs after @Input() values are available
+	Called only once	Also called once
+	🧩 Example
+	constructor(private userService: UserService) {
+	  console.log("Constructor called");
+	}
+	
+	ngOnInit() {
+	  console.log("ngOnInit called");
+	  this.userService.getUsers(); // correct place
+	}
+	
+	🧠 Key Interview Point ⭐
+	
+	“We use constructor only for injecting dependencies. All business logic, API calls, and initialization code should go inside ngOnInit.”
+	
+	❗ Why NOT API call in constructor?
+	
+	Because:
+	
+	Component not fully initialized
+	
+	Inputs not ready
+	
+	Harder to test
+	
+	🎯 Best Short Answer
+	
+	“Constructor is for dependency injection and basic setup, while ngOnInit is for component initialization and data fetching after Angular binds inputs.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
