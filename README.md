@@ -695,25 +695,40 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 14. ### What is angular CLI?
-    Angular CLI(**Command Line Interface**) is a command line interface to scaffold and build angular apps using nodejs style (commonJs) modules.
-    You need to install using below npm command,
-    ```
-    npm install @angular/cli@latest
-    ```
-    Below are the list of few commands, which will come handy while creating angular projects
-    1. **Creating New Project:** ng new <project-name>
+    Best interview definition:
 
-    2. **Generating Components, Directives & Services:** ng generate/g <feature-name>
-        The different types of commands would be,
-        * ng generate class my-new-class: add a class to your application
-        * ng generate component my-new-component: add a component to your application
-        * ng generate directive my-new-directive: add a directive to your application
-        * ng generate enum my-new-enum: add an enum to your application
-        * ng generate module my-new-module: add a module to your application
-        * ng generate pipe my-new-pipe: add a pipe to your application
-        * ng generate service my-new-service: add a service to your application
-
-    3. **Running the Project:** ng serve
+	“Angular CLI (Command Line Interface) is a tool provided by Angular to create, develop, build, test, and deploy Angular applications using commands.”
+	
+	🧠 Simple Meaning
+	
+	👉 It’s a tool that automates Angular development tasks
+	So we don’t write everything manually.
+	
+	🧩 What we use Angular CLI for
+	Task	Command Example
+	Create project	ng new my-app
+	Run project	ng serve
+	Generate component	ng generate component user
+	Generate service	ng g service auth
+	Build app	ng build
+	Run tests	ng test
+	🎯 How to explain in interview
+	
+	“Angular CLI improves productivity by providing ready project structure, code generation, live development server, and optimized production builds.”
+	
+	💡 Why it is important
+	
+	Reduces manual setup
+	
+	Follows Angular best practices
+	
+	Handles Webpack, TypeScript config automatically
+	
+	Faster development
+	
+	🧠 Strong One-Line Answer
+	
+	“Angular CLI is a command-line tool that simplifies Angular development by automating project setup, code generation, and build processes.”
 
   **[⬆ Back to Top](#table-of-contents)**
 
